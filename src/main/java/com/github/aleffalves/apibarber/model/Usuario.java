@@ -25,6 +25,7 @@ public class Usuario {
     private String email;
 
     @Column(name = "DATA_CRIACAO")
+
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataCriação;
 
@@ -79,4 +80,5 @@ public class Usuario {
     public void setDataCriação(LocalDate dataCriação) {
         this.dataCriação = dataCriação;
     }
+
 }
