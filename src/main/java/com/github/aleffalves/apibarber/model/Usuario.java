@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
+
 
 @Entity
 @Table(name = "USUARIO")
@@ -17,6 +17,9 @@ public class Usuario {
 
     @Column(name = "NOME")
     private String nome;
+
+    @Column(name = "SENHA")
+    private String senha;
 
     @Column(name = "CPF")
     private String cpf;
@@ -32,9 +35,10 @@ public class Usuario {
 
     }
 
-    public Usuario(Integer id, String nome, String cpf, String email, LocalDate dataCriação) {
+    public Usuario(Integer id, String nome, String senha, String cpf, String email, LocalDate dataCriação) {
         this.id = id;
         this.nome = nome;
+        this.senha = senha;
         this.cpf = cpf;
         this.email = email;
         this.dataCriação = dataCriação;
@@ -54,6 +58,14 @@ public class Usuario {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public String getCpf() {
