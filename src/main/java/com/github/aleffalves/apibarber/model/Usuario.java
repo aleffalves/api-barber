@@ -31,6 +31,7 @@ public class Usuario {
 //    @JsonFormat(pattern = "dd/MM/yyyy")
     private Date dataAniversario;
 
+
     public Usuario(){
 
     }
@@ -91,4 +92,5 @@ public class Usuario {
     public void setDataAniversario(Date dataAniversario) {
         this.dataAniversario = dataAniversario;
     }
+
 }
