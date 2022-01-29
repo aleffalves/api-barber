@@ -3,7 +3,7 @@ package com.github.aleffalves.apibarber.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 
 
 @Entity
@@ -27,21 +27,21 @@ public class Usuario {
     @Column(name = "EMAIL")
     private String email;
 
-    @Column(name = "DATA_CRIACAO")
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private LocalDate dataCriação;
+    @Column(name = "DATA_ANIVERSARIO")
+//    @JsonFormat(pattern = "dd/MM/yyyy")
+    private Date dataAniversario;
 
     public Usuario(){
 
     }
 
-    public Usuario(Integer id, String nome, String senha, String cpf, String email, LocalDate dataCriação) {
+    public Usuario(Integer id, String nome, String senha, String cpf, String email, Date dataAniversario) {
         this.id = id;
         this.nome = nome;
         this.senha = senha;
         this.cpf = cpf;
         this.email = email;
-        this.dataCriação = dataCriação;
+        this.dataAniversario = dataAniversario;
     }
 
     public Integer getId() {
@@ -84,11 +84,11 @@ public class Usuario {
         this.email = email;
     }
 
-    public LocalDate getDataCriação() {
-        return dataCriação;
+    public Date getDataAniversario() {
+        return dataAniversario;
     }
 
-    public void setDataCriação(LocalDate dataCriação) {
-        this.dataCriação = dataCriação;
+    public void setDataAniversario(Date dataAniversario) {
+        this.dataAniversario = dataAniversario;
     }
 }
