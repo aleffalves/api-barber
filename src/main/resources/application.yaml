@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:sqlserver://localhost;
+    url: jdbc:sqlserver://localhost;dataBase=BARBER;
     username: root
     password: root
   jpa:
