@@ -24,7 +24,7 @@ public class Usuario {
     @Column(name = "CPF")
     private String cpf;
 
-    @Column(name = "EMAIL")
+    @Column(unique = true, name = "EMAIL")
     private String email;
 
     @Column(name = "DATA_ANIVERSARIO")
