@@ -1,35 +1,22 @@
 package com.github.aleffalves.apibarber.security;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
-@EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.
-                inMemoryAuthentication()
-                .withUser("barber")
-                .password("123")
-                .roles("USER");
+@Configuration
+@ConfigurationProperties(prefix = "security.config")
+public class SecurityConfig {
+    public static String PREFIX;
+    public static String KEY;
+    public static Long EXPIRATION;
+
+    public void setPrefix(String prefix){
+        PREFIX = prefix;
     }
-
-    @Bean
-    public AuthenticationManager authenticationManager() throws Exception{
-        return super.authenticationManager();
+    public void setKey(String key){
+        KEY = key;
     }
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.
-                csrf().disable()
-                .cors()
-                .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+    public void setExpiration(Long expiration){
+        EXPIRATION = expiration;
     }
 }
