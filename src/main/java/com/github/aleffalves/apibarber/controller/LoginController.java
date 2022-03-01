@@ -14,7 +14,7 @@ import java.util.Date;
 
 @RestController
 @RequestMapping(value = "/api/login")
-@CrossOrigin(value = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "https://aleffalves.github.io"})
 public class LoginController {
 
     private final PasswordEncoder encoder;
