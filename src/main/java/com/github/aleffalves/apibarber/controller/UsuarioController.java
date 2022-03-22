@@ -1,9 +1,9 @@
 package com.github.aleffalves.apibarber.controller;
 
 import com.github.aleffalves.apibarber.model.Usuario;
+import com.github.aleffalves.apibarber.modelDTO.UsuarioDTO;
 import com.github.aleffalves.apibarber.repository.UsuarioRepository;
-import com.github.aleffalves.apibarber.service.ServiceUsuario;
-import org.springframework.http.HttpStatus;
+import com.github.aleffalves.apibarber.service.UsuarioService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -12,21 +12,20 @@ import org.springframework.web.bind.annotation.*;
 public class UsuarioController {
 
     private final UsuarioRepository usuarioRepository;
-    private final ServiceUsuario serviceUsuario;
+    private final UsuarioService usuarioService;
 
-    public UsuarioController(UsuarioRepository usuarioRepository, ServiceUsuario serviceUsuario) {
+    public UsuarioController(UsuarioRepository usuarioRepository, UsuarioService usuarioService) {
         this.usuarioRepository = usuarioRepository;
-        this.serviceUsuario = serviceUsuario;
+        this.usuarioService = usuarioService;
     }
 
     @PostMapping()
-    public void cadastroUsuario(@RequestBody Usuario usuario){
-        serviceUsuario.criarUsuario(usuario);
+    public void cadastroUsuario(@RequestBody UsuarioDTO usuario){
+        usuarioService.criarUsuario(usuario);
     }
 
     @GetMapping("{id}")
     public Usuario buscarUsuarioPorId(@PathVariable Integer id){
-
         return usuarioRepository.findById(id).orElseThrow();
     }
 }
