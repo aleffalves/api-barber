@@ -1,6 +1,9 @@
 package com.github.aleffalves.apibarber.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -12,11 +15,8 @@ public class Horarios {
     @Column(name = "ID")
     private Integer id;
 
-    @Column(name = "DATA")
-    private Date data;
-
     @Column(name = "HORARIO")
-    private Date horario;
+    private String horario;
 
     @Column(name = "IS_DISPONIVEL")
     private Boolean isDisponivel;
@@ -29,19 +29,11 @@ public class Horarios {
         this.id = id;
     }
 
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-
-    public Date getHorario() {
+    public String getHorario() {
         return horario;
     }
 
-    public void setHorario(Date horario) {
+    public void setHorario(String horario) {
         this.horario = horario;
     }
 

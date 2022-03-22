@@ -26,7 +26,6 @@ public class UsuarioController {
 
     @GetMapping("{id}")
     public Usuario buscarUsuarioPorId(@PathVariable Integer id){
-
         return usuarioRepository.findById(id).orElseThrow();
     }
 }
